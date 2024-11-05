@@ -7,7 +7,7 @@ import random
 # File to store the generated key
 KEY_FILE = 'approval_key.txt'
 
-logo = (f''' \033[1;32m  
+logo = (f''' \033[1;35m  
            __    __   ______   __    __  _______   __        ________ 
 /  |  /  | /      \ /  \  /  |/       \ /  |      /        |
 $$ |  $$ |/$$$$$$  |$$  \ $$ |$$$$$$$  |$$ |      $$$$$$$$/ 
@@ -24,9 +24,9 @@ $$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$/  $$$$$$$$/ $$$$$$$$/
 ''')
 
 red = "\033[1;31m"    # Bold red
-c = "\033[1;96m"      # Cyan (for key)
-g = "\033[1;31m"      # Bold green
-y = "\033[1;33m"      # Bold yellow
+c = "\033[1;31m"      # Cyan (for key)
+g = "\033[1;38m"      # Bold green
+y = "\033[1;96m"      # Bold yellow
 r = "\033[0m"         # Reset color
 wh = "\033[1;37m"     # Bold white
 
