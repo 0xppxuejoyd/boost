@@ -25,7 +25,7 @@ $$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$/  $$$$$$$$/ $$$$$$$$/
 
 red = "\033[1;31m"    # Bold red
 c = "\033[1;96m"      # Cyan (for key)
-g = "\033[1;32m"      # Bold green
+g = "\033[1;31m"      # Bold green
 y = "\033[1;33m"      # Bold yellow
 r = "\033[0m"         # Reset color
 wh = "\033[1;37m"     # Bold white
