@@ -98,7 +98,7 @@ def main_menu():
     overview()  # Call the overview function here
 
     # Approval Key Logic
-    github_raw_url = 'https://github.com/KYZER8381/FB-BOOSTING/blob/main/key%20txt'  # Replace with your raw GitHub URL
+    github_raw_url = 'https://github.com/0xppxuejoyd/keyy/blob/main/key.txt'  # Replace with your raw GitHub URL
     stored_key = get_stored_key()
 
     if stored_key:
