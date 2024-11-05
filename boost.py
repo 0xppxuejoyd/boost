@@ -25,7 +25,7 @@ $$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$/  $$$$$$$$/ $$$$$$$$/
 
 red = "\033[1;31m"    # Bold red
 c = "\033[1;31m"      # Cyan (for key)
-g = "\033[1;38m"      # Bold green
+g = "\033[1;34m"      # Bold green
 y = "\033[1;96m"      # Bold yellow
 r = "\033[0m"         # Reset color
 wh = "\033[1;37m"     # Bold white
@@ -42,7 +42,7 @@ def count_lines(file_path):
 
 def overview():
     print(logo)  # Print the logo
-    print(f"\033[1;32m ━━━━━━━━━━━━━━━━━━━━━━━━━━[{g}OVERVIEW{g}]━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    print(f"\033[1;34m ━━━━━━━━━━━━━━━━━━━━━━━━━━[{g}OVERVIEW{g}]━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     total_accounts = count_lines("/sdcard/Test/toka.txt")
     total_pages = count_lines("/sdcard/Test/tokp.txt")
     print(f"  {g}                   TOTAL ACCOUNTS: {g}{total_accounts}{g}")
