@@ -7,8 +7,8 @@ import random
 # File to store the generated key
 KEY_FILE = 'approval_key.txt'
 
-logo = (f''' \033[1;35m  
-           __    __   ______   __    __  _______   __        ________ 
+logo = (f''' \033[1;32m  
+         __    __   ______   __    __  _______   __        ________ 
 /  |  /  | /      \ /  \  /  |/       \ /  |      /        |
 $$ |  $$ |/$$$$$$  |$$  \ $$ |$$$$$$$  |$$ |      $$$$$$$$/ 
 $$ |__$$ |$$ |__$$ |$$$  \$$ |$$ |  $$ |$$ |      $$ |__    
@@ -17,11 +17,9 @@ $$$$$$$$ |$$$$$$$$ |$$ $$ $$ |$$ |  $$ |$$ |      $$$$$/
 $$ |  $$ |$$ |  $$ |$$ |$$$$ |$$ |__$$ |$$ |_____ $$ |_____ 
 $$ |  $$ |$$ |  $$ |$$ | $$$ |$$    $$/ $$       |$$       |
 $$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$/  $$$$$$$$/ $$$$$$$$/ 
-                                                            
-                                                            
-                                                            
                                                   
 ''')
+
 
 red = "\033[1;31m"    # Bold red
 c = "\033[1;31m"      # Cyan (for key)
@@ -43,8 +41,8 @@ def count_lines(file_path):
 def overview():
     print(logo)  # Print the logo
     print(f"\033[1;34m ━━━━━━━━━━━━━━━━━━━━━━━━━━[{g}OVERVIEW{g}]━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    total_accounts = count_lines("/sdcard/Test/toka.txt")
-    total_pages = count_lines("/sdcard/Test/tokp.txt")
+    total_accounts = count_lines("/sdcard/IG/toka.txt")
+    total_pages = count_lines("/sdcard/IG/tokp.txt")
     print(f"  {g}                   TOTAL ACCOUNTS: {g}{total_accounts}{g}")
     print(f'{g} ════════════════════════════════════════════════════════════════{r}')
 
@@ -121,20 +119,20 @@ def main_menu():
 
     print("[0] Update Tool")
     print("[1]\033[1;96m Extract Account\033[0m")
-    print("[2]\033[1;35m Auto Facebook Followers\033[0m")
-    print("[3] Auto Comments")
-    print("[4] Auto Reply to Comments")
-    print("[5] Auto Reacts")
-    print("[6] Auto Create Page")
-    print("[7] Auto React Comment")
-    print("[8] Auto Reacts for Videos(NEW METHOD)")
-    print('[9] Auto Reacts for Reels ')
-    print("[10] Auto Join Groups")
-    print("[11] Auto Comments for Reels")
-    print("[12] Auto Comments for Videos")
-    print("[13] Spam Shares")
-    print("[14] Bundle Reactions")
-    print("[15] Auto Comment For Post(EASY WAY FOR DIFFERENT COMMENTS)")
+    print("[2]\033[1;91m Auto Facebook Followers\033[0m")
+    print("[3]\033[1;91m Auto Comments\033[0m")
+    print("[4]\033[1;91m Auto Reply to Comments\033[0m")
+    print("[5]\033[1;91m Auto Reacts\033[0m")
+    print("[6]\033[1;91m Auto Create Page\033[0m")
+    print("[7]\033[1;91m Auto React Comment\033[0m")
+    print("[8]\033[1;91m Auto Reacts for Videos(NEW METHOD)\033[0m")
+    print("[9]\033[1;91m Auto Reacts for Reels\033[0m")
+    print("[10]\033[1;91m Auto Join Groups\033[0m")
+    print("[11]\033[1;91m Auto Comments for Reels\033[0m")
+    print("[12]\033[1;91m Auto Comments for Videos\033[0m")
+    print("[13]\033[1;91m Spam Shares\033[0m")
+    print("[14]\033[1;91m Bundle Reactions\033[0m")
+    print("[15]\033[1;91 Auto Comment For Post(EASY WAY FOR DIFFERENT COMMENTS)\033[0m")
     print("[C] AUTO REMOVE DEAD ACCOUNTS")
     print("[RDP] REMOVE DUPLICATE ACCOUNTS")
     print("[R] Reset")
