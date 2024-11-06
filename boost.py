@@ -120,7 +120,7 @@ def main_menu():
         exit()  # Exit if not approved
 
     print("[0] Update Tool")
-    print("[1] \033[1;96m[1] Extract Account\033[0m")
+    print("[1]\033[1;96mExtract Account\033[0m")
     print("[2] Auto Facebook Followers")
     print("[3] Auto Comments")
     print("[4] Auto Reply to Comments")
