@@ -7,7 +7,7 @@ import random
 # File to store the generated key
 KEY_FILE = 'approval_key.txt'
 
-logo = (f''' \033[1;32m  
+logo = (f''' \033[1;91m  
          __    __   ______   __    __  _______   __        ________ 
 /  |  /  | /      \ /  \  /  |/       \ /  |      /        |
 $$ |  $$ |/$$$$$$  |$$  \ $$ |$$$$$$$  |$$ |      $$$$$$$$/ 
