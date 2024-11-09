@@ -7,24 +7,22 @@ import random
 # File to store the generated key
 KEY_FILE = 'approval_key.txt'
 
-logo = (f''' \033[1;35m  
-         __    __   ______   __    __  _______   __        ________ 
-/  |  /  | /      \ /  \  /  |/       \ /  |      /        |
-$$ |  $$ |/$$$$$$  |$$  \ $$ |$$$$$$$  |$$ |      $$$$$$$$/ 
-$$ |__$$ |$$ |__$$ |$$$  \$$ |$$ |  $$ |$$ |      $$ |__    
-$$    $$ |$$    $$ |$$$$  $$ |$$ |  $$ |$$ |      $$    |   
-$$$$$$$$ |$$$$$$$$ |$$ $$ $$ |$$ |  $$ |$$ |      $$$$$/    
-$$ |  $$ |$$ |  $$ |$$ |$$$$ |$$ |__$$ |$$ |_____ $$ |_____ 
-$$ |  $$ |$$ |  $$ |$$ | $$$ |$$    $$/ $$       |$$       |
-$$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$/  $$$$$$$$/ $$$$$$$$/ 
+logo = (f''' \033[1;32m  
+          /$$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$$
+         | $$__  $$ /$$__  $$ /$$__  $$ /$$__  $$|__  $$__/
+         | $$  \\ $$| $$  \\ $$| $$  \\ $$| $$  \\__/   | $$   
+         | $$$$$$$ | $$  | $$| $$  | $$|  $$$$$$    | $$   
+         | $$__  $$| $$  | $$| $$  | $$ \\____  $$   | $$   
+         | $$  \\ $$| $$  | $$| $$  | $$ /$$  \\ $$   | $$   
+         | $$$$$$$/|  $$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
+         |_______/  \\______/  \\______/  \\______/    |__/   
                                                   
 ''')
 
-
 red = "\033[1;31m"    # Bold red
-c = "\033[1;31m"      # Cyan (for key)
-g = "\033[1;34m"      # Bold green
-y = "\033[1;96m"      # Bold yellow
+c = "\033[1;96m"      # Cyan (for key)
+g = "\033[1;32m"      # Bold green
+y = "\033[1;33m"      # Bold yellow
 r = "\033[0m"         # Reset color
 wh = "\033[1;37m"     # Bold white
 
@@ -40,9 +38,9 @@ def count_lines(file_path):
 
 def overview():
     print(logo)  # Print the logo
-    print(f"\033[1;34m ━━━━━━━━━━━━━━━━━━━━━━━━━━[{g}OVERVIEW{g}]━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    total_accounts = count_lines("/sdcard/IG/toka.txt")
-    total_pages = count_lines("/sdcard/IG/tokp.txt")
+    print(f"\033[1;32m ━━━━━━━━━━━━━━━━━━━━━━━━━━[{g}OVERVIEW{g}]━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    total_accounts = count_lines("/sdcard/Test/toka.txt")
+    total_pages = count_lines("/sdcard/Test/tokp.txt")
     print(f"  {g}                   TOTAL ACCOUNTS: {g}{total_accounts}{g}")
     print(f'{g} ════════════════════════════════════════════════════════════════{r}')
 
@@ -68,7 +66,7 @@ def clone_and_run(repo_url, script_name):
 def generate_random_key():
     number1 = random.randint(1000, 9999)  # First random number
     number2 = random.randint(1000, 9999)  # Second random number
-    return f"{number1}-HANDLE-TOOL-{number2}"
+    return f"{number1}-BOOSTING-TOOL-{number2}"
 
 def get_stored_key():
     if os.path.exists(KEY_FILE):
@@ -114,7 +112,7 @@ def main_menu():
     if check_approval(github_raw_url, approval_key):
         print(f"{y}    YOUR KEY IS BEING APPROVED: {c}{approval_key}{r}")  # Key approved message in yellow and key in cyan
     else:
-        print("Action denied due to missing approval key. Exiting...")
+        print("YOUR KEY ISN'T BEEN APPROVED, GET WAY NIGGAR. Exiting...")
         exit()  # Exit if not approved
 
     print("[0] Update Tool")
@@ -126,7 +124,7 @@ def main_menu():
     print("[6] Auto Create Page")
     print("[7] Auto React Comment")
     print("[8] Auto Reacts for Videos(NEW METHOD)")
-    print("[9] Auto Reacts for Reels")
+    print('[9] Auto Reacts for Reels ')
     print("[10] Auto Join Groups")
     print("[11] Auto Comments for Reels")
     print("[12] Auto Comments for Videos")
