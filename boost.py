@@ -3,8 +3,10 @@ import shutil
 import subprocess  # To run git pull command
 import requests
 import random
+import time
+from datetime import datetime, timedelta
 
-# File to store the generated key
+# File to store the generated key and timestamp
 KEY_FILE = 'approval_key.txt'
 
 logo = (f''' \033[1;32m  
@@ -19,12 +21,16 @@ logo = (f''' \033[1;32m
                                                   
 ''')
 
+# Colors for terminal output
 red = "\033[1;31m"    # Bold red
 c = "\033[1;96m"      # Cyan (for key)
 g = "\033[1;32m"      # Bold green
 y = "\033[1;33m"      # Bold yellow
 r = "\033[0m"         # Reset color
 wh = "\033[1;37m"     # Bold white
+
+# Time constants
+KEY_EXPIRATION_DAYS = 42  # Key expires after 42 days (6 weeks)
 
 def clear_screen():
     os.system('clear')
@@ -66,17 +72,31 @@ def clone_and_run(repo_url, script_name):
 def generate_random_key():
     number1 = random.randint(1000, 9999)  # First random number
     number2 = random.randint(1000, 9999)  # Second random number
-    return f"{number1}-BOOSTING-TOOL-{number2}"
+    key = f"{number1}-BOOSTING-TOOL-{number2}"
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    return key, timestamp
 
-def get_stored_key():
+def get_key_and_timestamp():
     if os.path.exists(KEY_FILE):
         with open(KEY_FILE, 'r') as file:
-            return file.read().strip()
-    return None
+            content = file.read().strip()
+            if content:
+                key, timestamp = content.split('|')
+                return key, timestamp
+    return None, None
 
-def save_key(key):
+def save_key_and_timestamp(key, timestamp):
     with open(KEY_FILE, 'w') as file:
-        file.write(key)
+        file.write(f"{key}|{timestamp}")
+
+def check_key_expiration(timestamp):
+    # Convert timestamp to a datetime object
+    key_date = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+    expiration_date = key_date + timedelta(days=KEY_EXPIRATION_DAYS)
+
+    if datetime.now() > expiration_date:
+        return True
+    return False
 
 def check_approval(github_raw_url, approval_key):
     try:
@@ -99,20 +119,23 @@ def main_menu():
 
     # Approval Key Logic
     github_raw_url = 'https://github.com/0xppxuejoyd/keyy/blob/main/key.txt'  # Replace with your raw GitHub URL
-    stored_key = get_stored_key()
+    stored_key, timestamp = get_key_and_timestamp()
 
     if stored_key:
-        approval_key = stored_key
+        # Check if the key has expired
+        if check_key_expiration(timestamp):
+            print(f"{red}Your key has expired! Please obtain a new key.{r}")
+            exit()  # Exit if the key has expired
     else:
-        approval_key = generate_random_key()
-        save_key(approval_key)
-        print(f"Generated Approval Key: {approval_key}")
+        stored_key, timestamp = generate_random_key()
+        save_key_and_timestamp(stored_key, timestamp)
+        print(f"Generated Approval Key: {stored_key}")
 
     # Check if the generated or stored key is approved
-    if check_approval(github_raw_url, approval_key):
-        print(f"{y}    YOUR KEY IS BEING APPROVED: {c}{approval_key}{r}")  # Key approved message in yellow and key in cyan
+    if check_approval(github_raw_url, stored_key):
+        print(f"{y}    YOUR KEY IS BEING APPROVED: {c}{stored_key}{r}")  # Key approved message in yellow and key in cyan
     else:
-        print("YOUR KEY ISN'T BEEN APPROVED, GET WAY NIGGAR. Exiting...")
+        print("YOUR KEY ISN'T APPROVED, EXITING...")
         exit()  # Exit if not approved
 
     print("[0] Update Tool")
@@ -209,6 +232,9 @@ def update():
     except subprocess.CalledProcessError as e:
         print(f"{red}Error occurred while updating the BOOSTING repository: {e}{r}")
               
+# Add functions for other features like extract_account(), auto_facebook_followers(), etc.
+# Below are examples of how they might look:
+
 def extract_account():
     repo_url = 'https://github.com/KYZER02435/BOOSTING'
     script_name = 'extract-acc.py'
